@@ -1,0 +1,23 @@
+.top-bar{
+  text-align: center;
+}
+
+.logo {
+    margin: 0 10px 0 0;
+  }
+
+.nav-link {
+    position: absolute;
+    right: 0;
+    padding-right: 10px;
+}
+
+.menu-link {
+  color: inherit;
+  text-decoration: inherit;
+  margin-left: 10px;
+}
+
+.search{  
+  margin-left: 35%;
+}
