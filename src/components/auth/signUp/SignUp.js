@@ -23,17 +23,17 @@ const Signup = () => {
     return (
         <form className='form-wrapper' onSubmit={handleSubmit}>
             <Grid container rowSpacing={1} alignItems="center" justify="center" direction="column">
-                <Grid item>
-                    <TextField 
+                <Grid item marginTop={1}>
+                    <TextField className='text-field'
                         label="First Name"
                         required
-                        size="small"
+                        size="small"                        
                         value={firstName}
                         onChange={e => setFirstName(e.target.value)}
                     />
                 </Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Last Name"
                         required
                         size="small"
@@ -42,7 +42,7 @@ const Signup = () => {
                     />
                 </Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Email Address"
                         type="email"
                         size="small"
@@ -51,7 +51,7 @@ const Signup = () => {
                         onChange={e => setEmail(e.target.value)}
                     /></Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Password"
                         type="password"
                         size="small"
@@ -61,7 +61,7 @@ const Signup = () => {
                     />
                 </Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Confirm Password"
                         type="confirmPassword"
                         size="small"
@@ -71,7 +71,7 @@ const Signup = () => {
                     />
                 </Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Contact Number"
                         type="contact"
                         size="small"
@@ -82,7 +82,7 @@ const Signup = () => {
                 </Grid>
             </Grid>
             <div className='action-panel'>
-                <Button size='small' variant="contained" type="submit" style={{width:150, borderRadius:0}}>Signup</Button>
+                <Button size='small' variant="contained" type="submit" style={{width:350, borderRadius:0}}>Signup</Button>
             </div>
         </form>
     );
