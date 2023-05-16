@@ -16,8 +16,8 @@ const Signin = () => {
     return (
         <form className='form-wrapper' onSubmit={handleLogin}>
             <Grid container rowSpacing={1} alignItems="center" justify="center" direction="column">                
-                <Grid item>
-                    <TextField
+                <Grid item marginTop={1}>
+                    <TextField className='text-field'
                         label="Email Address"
                         type="email"
                         size="small"
@@ -26,7 +26,7 @@ const Signin = () => {
                         onChange={e => setEmail(e.target.value)}
                     /></Grid>
                 <Grid item>
-                    <TextField
+                    <TextField className='text-field'
                         label="Password"
                         type="password"
                         size="small"
@@ -37,7 +37,7 @@ const Signin = () => {
                 </Grid>                
             </Grid>
             <div className='action-panel'>
-                <Button size='small' variant="contained" type="submit" style={{width:150, borderRadius:0}}>Login</Button>
+                <Button size='small' variant="contained" type="submit" style={{width:350, borderRadius:0}}>Login</Button>
             </div>
         </form>
     );
