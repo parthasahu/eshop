@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { TextField, Button, Grid } from "@mui/material/";
+import React, { useState, useContext } from 'react';
+import { TextField, Button, Grid, Select, MenuItem } from "@mui/material/";
 import './SignUp.css'
+import { AppContext } from '../../../AppProvider';
 
 const Signup = () => {
     // create state variables for each input
@@ -10,13 +11,35 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [contact, setContact] = useState('');
+    const [confirmPasswordEror, setConfirmPasswordEror] = useState('');
+    const [userRole, setuserRole] = useState('');
 
-    const handleSubmit = e => {
+    const {
+        services: {
+            userService
+        }
+    } = useContext(AppContext);
+
+
+    const reset = () => {
+        setConfirmPasswordEror('');
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(firstName, lastName, email, password);
+        console.log(firstName, lastName, email, password, contact);
 
+        if (password != confirmPassword) {
+            setConfirmPasswordEror('Password and confirm password must match.');
+        }
+
+        const data = { firstName, lastName, email, password, confirmPassword, contact };
         // post api: user details
+        const resp = userService.getUser('123');
+        console.log('service resp: ' + resp);
 
+        await userService.create(data);
+        console.log('user created: ', data);
         // redirect to login
     };
 
@@ -27,8 +50,9 @@ const Signup = () => {
                     <TextField className='text-field'
                         label="First Name"
                         required
-                        size="small"                        
+                        size="small"
                         value={firstName}
+                        autoComplete="new-password"
                         onChange={e => setFirstName(e.target.value)}
                     />
                 </Grid>
@@ -38,6 +62,7 @@ const Signup = () => {
                         required
                         size="small"
                         value={lastName}
+                        autoComplete="new-password"
                         onChange={e => setLastName(e.target.value)}
                     />
                 </Grid>
@@ -48,6 +73,7 @@ const Signup = () => {
                         size="small"
                         required
                         value={email}
+                        autoComplete="new-password"
                         onChange={e => setEmail(e.target.value)}
                     /></Grid>
                 <Grid item>
@@ -57,7 +83,7 @@ const Signup = () => {
                         size="small"
                         required
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={e => { setPassword(e.target.value); reset() }}
                     />
                 </Grid>
                 <Grid item>
@@ -67,8 +93,10 @@ const Signup = () => {
                         size="small"
                         required
                         value={confirmPassword}
-                        onChange={e => setConfirmPassword(e.target.value)}
+                        autoComplete="new-password"
+                        onChange={e => { setConfirmPassword(e.target.value); reset() }}
                     />
+                    <p className="error-message">{confirmPasswordEror}</p>
                 </Grid>
                 <Grid item>
                     <TextField className='text-field'
@@ -77,12 +105,21 @@ const Signup = () => {
                         size="small"
                         required
                         value={contact}
+                        autoComplete="new-password"
                         onChange={e => setContact(e.target.value)}
                     />
                 </Grid>
+                {/* <Grid item>
+                    <Select className='text-field'
+                        label="Role"
+                        onChange={e=> setuserRole(e.target.value)}>
+                        <MenuItem value="USER">User</MenuItem>
+                        <MenuItem value="ADMIN">Admin</MenuItem>
+                    </Select>
+                </Grid> */}
             </Grid>
             <div className='action-panel'>
-                <Button size='small' variant="contained" type="submit" style={{width:350, borderRadius:0}}>Signup</Button>
+                <Button size='small' variant="contained" type="submit" style={{ width: 350, borderRadius: 0 }}>Signup</Button>
             </div>
         </form>
     );
