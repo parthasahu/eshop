@@ -1,0 +1,11 @@
+.confirmorder-box{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+.confirmorder-detail{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: start;
+    max-width: 500px;
+}

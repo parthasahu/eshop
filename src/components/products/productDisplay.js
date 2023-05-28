@@ -6,9 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import cardimage from './Untitled.png';
 
-export default function MultiActionAreaCard(props) {
-    //props=JSON.stringify(props);
-    console.log(props.product);
+export default function ProductDisplay(props) {
     const name = props.product.name;
     const price = props.product.price;
     const description = props.product.description;
@@ -32,7 +30,7 @@ export default function MultiActionAreaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" style={{"background-color": "mediumblue", "color":"white"}}>
+        <Button onClick={()=>props.change(props.product.id)} size="small" color="primary" style={{"background-color": "mediumblue", "color":"white"}}>
           BUY
         </Button>
       </CardActions>
