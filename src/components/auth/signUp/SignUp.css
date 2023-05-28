@@ -8,3 +8,10 @@
   .text-field {
     width: 350px;
   }
+
+  .error-message {
+    font-size: small;
+    color: red;
+    margin: 0;
+    padding: 0;
+  }
