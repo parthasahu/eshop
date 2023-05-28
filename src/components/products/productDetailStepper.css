@@ -1,0 +1,15 @@
+.stepper-details{
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+.stepper-product-detailst{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: start;
+}
+.stepper-image{
+    min-height: 300px;
+    min-width: 300px;
+}

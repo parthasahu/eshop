@@ -1,0 +1,15 @@
+.detail{
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.product-detail{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: start;
+}
+.image{
+    min-height: 300px;
+    min-width: 300px;
+}

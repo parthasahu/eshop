@@ -4,6 +4,7 @@ import Signup from './components/auth/signUp/SignUp';
 import Header from './components/header/Header'
 import Signin from './components/auth/singIn/SignIn';
 import { AppProvider } from './AppProvider'; 
+import ProductsList from './components/products/productDisplayList'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Signin />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/" element={<ProductsList />} />
             </Routes>
           </div>
           <footer className='footer'>&copy; upGrad 2023</footer>
